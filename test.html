@@ -1,0 +1,232 @@
+<style>
+body {
+  font-family: 'HelveticaNeue';
+  font-weight: 200;
+  background-color: rgba(255, 255, 255, 1);
+}
+h3 {
+  margin: 0;
+  font-family: 'HelveticaNeue-Light';
+  font-weight: 200;
+  line-height: 1.1em;
+}
+#stage {
+  background-color: rgba(255, 255, 255, 1);
+  color: #000000;
+}
+.topbar.translucent {
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 1px #ccc solid;
+  color: #444444;
+  line-height: 36px;
+}
+.x-close {
+  width: 16px;
+  height: 16px;
+  right: 10px;
+  top: 10px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAVdEVYdENyZWF0aW9uIFRpbWUAOS8yNC8xM/lHw1UAAAGTSURBVGiB7ZpLbsIwFEWPM+yuOkfKApAQ62ABrCOq1AUgMWdXHSYd2I4smhB/nomf1DtC8Ox3T3D8NwQyl+kInIF+upofGpK5TB/ADRimq/mevw8CjsAX0AEP4NAKhDN/Bz6BETh5COMCQvNeTUA8mfeaIcyKea9dIVbMe43AqcO2+SXzuIJ3V9FbtWEerOdzB/TYJ72mt0NEmAfruTeJBao3p1QvYS+0O0SOBxP+sidEbm7zHLEHREnOPwClFaaqNNcigETFMZLIsQoglaB23S8BJBPVqnMTQDyh8AOJApBKXOXfjAmSMFDrfUoCyDVStTNICZ4LJRhyn6t1x1kAkARBREz+WJJTaC4cB/FKxaN5EQAUQchMRUoKz5WkQ4hNBkUAIAlCdCa7thZWo/8mpPolVt2Nqh7IVE8lVE/mVE+nVS9oVC8pVS/qVW+rqN7YUr21qHpzV/X2uuoDjhbMeyUfMbVk3ivFU4c9vm/GPIDLdWD79PTWAQP20HhJux10R0CMwKD/qkEQqPeyRxCo7rrNL8B+357BI1AUAAAAAElFTkSuQmCC);
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+}
+#split-screen {
+  padding-top: 36px;
+}
+.bg {
+  width: 100%;
+  height: 230px;
+  /*(**replace**) BACKGROUND IMAGE PORTRAIT */
+  background-image: url(//offerwall.s3.amazonaws.com/assets/40262/g_repolis_port_01_original.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.offer-content {
+  padding: 25px 13px 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.offer-content .icon {
+  float: left;
+  margin: 0 10px 0 0;
+  border-radius: 9px;
+}
+.offer-content .icon img {
+  width: 85px;
+  height: 85px;
+  display: block;
+  border-radius: 9px;
+}
+.offer-content .icon .price {
+  display: block;
+  margin-top: 7px;
+  text-align: center;
+  font-family: 'HelveticaNeue';
+  color: #757575;
+}
+.offer-content .details .publisher {
+  display: block;
+  margin: 5px 0 18px 0;
+  font-family: 'HelveticaNeue-Light';
+  color: #414141;
+  font-size: .8em;
+}
+.offer-content .rating {
+}
+.offer-content .rating:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+ 
+.offer-content .rating {
+  display: inline-block;
+}
+.offer-content .rating .star {
+  float: left;
+  margin-right: 1px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAVdEVYdENyZWF0aW9uIFRpbWUAOS8yMy8xM2SQ++wAAAJwSURBVFiFzZjRVdswFIY/9fQdbwBMEDJBnQ2SZ784EwATQCcgTAAvem42IN3A3YBOUG/gPlhOUyPJV+bqwHeOD458r/xz/UuWDBnoKq66iqscfX/J0SlQu0OdXILX7lBHXbCzwjlwnsMWOSpcB85VyCF4HThXQVXwiR0G1G2hXeFa2DYbbcE+C6jaQk2wxw4DqrbQrHA981oSmoJjj17NFiqCI3YYULOFVoVrpZhJtARLHrmKLYx7VIUw3hdbANfC/EegHbW1QCPMb7+6kyfgQpj0HqT/mI8G2BqArqIAfgClgqgcHICNsbTmtLWreABuPkRSmJ2x3A4/zPhqV1HTW+QzsDWW59OGN4LhOK++IB+M2rTAyti3g9ErGI6+foE8m8kIDb3Y8WwCRATDUfQDmTaUHp6NZRsLiAoe6CqugZ2KpDA3xvI4FSQSDNBVrOkHo7avW/op6yAJFguG42B8Qs/XDb3YV2lC0lrCjdqfiaJi3KaIhXmLn3JGTojkJ5UkuKu4ABapN4lQpyakVrhMvcEECzd1ikkVnON7WVKfH11hyCXYTWlnyXKmKVOCUyosrUQLbNzhXQ+MOHMvJRHagg/A0lj2xrIHlq5No29AvpYogD8TYffG8j2QfwfcR3J/GyvbokkrHKtAQ19Vr1gAd21JeLMp/m4hFVwG2ncEFtpjXMyK8KpPZAupJV75/8tOS7992UvyPf35Vn6/jJ2u8mSFPZ+h9sDlXLEALvfS9TWwcK/+KBJLlO5vS7/I3oS2LykYS2ssG/pd+tBfGc7okQhe82+fNbkjSMX1uXL3eN+rv6souopvGsKE97ubivkLrGSVHWDqcA0AAAAASUVORK5CYII=);
+  background-size: 15px 14px;
+  width: 15px;
+  height: 14px;
+}
+.offer-content .rating .star.half {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAVdEVYdENyZWF0aW9uIFRpbWUAOS8yMy8xM2SQ++wAAAQDSURBVFiFvZlfaBxVFMZ/Zzbb3aKYqIiGWpZIi/iiu30QjG3d+NIHW21KbSs7lQQU8UVb+hRQ1CLR6staKNRSsQ93IBahVkXBPiQiBEohxj4olVAaxD9vbqVN7J/s9WFnktnNbGZu9o4fBM6ee865H4dz73wzAcvQWqNdirrCXtu1AZw0igJDwFtpFO5KoyiwC1iXRmH7Hd4vRWA94GiXou3yaYzEEDpkW0YahPeE7J22i1slrF2KaHpDroLtsbDd4VcifEM2N7BN+PkIn9WxsEbYH4d7w776+kfB8ljY7PAbrY76hv7AHLK1iT3Cmm2trttPuIFpbSysENYuW4A7W/31Qsn6WNjpsObddku2x8LWSPS3W7A9Fl2+DOyNjWzgKeDuFl83K4ioeqFEfUM/zsxkQbtUgVpLSA2YTrh/Ldjow5U27RQ393xAfnQzwOsdlJkGhgVAVyj4jp7O6S1h7sT1RduZ/RFnZhKZa26wzF/F+e1iZL7z6w+BOQEMiqIm4QBdYQoopUHYBGvGDtE1fjz4WRXFweBH06ETj03AJ6sl2Cnk79/JHdsdJjscJgsRt4R4vATsg5Cq/R/g/PEzuRP7yVz8FhoHsSSKU8viopLF4zOgD5hPk2SAzNQZ8qNbcS6fh8ZZ6hMVfXO0vYfFYxZ4BJhJhaWP7NnD5D524dY8wClRlEQtu/oWseKDQzxmxWMjcMYyT7hxjdzJYbLfHAk8B0QxHJeW6EknHruA97E41/nqs2QunIbGvA6I4qMkeYkfzeIxAryAhbnOnj0cnteSKCaS5hppCf8wXjJiF4HMzGRgHhTFFZPc1Yifh1eR0wRfcgLmktOIsK6wGVhrukkrFjqQnKYdNt4gCgubdqLX3gXwmHbN9Isp4WcM49uivvHJwDTSyaaE7zcJzp472nZtobgjMNMh7At9iQ0MIfv5CLmTw3Dj2rK1EOGySU2TDr9qEHudxoOmlrlwmvx7W8n8Mt4UoO+4J3jf69Zu8i6bEH48Ydx3wIMoPUJDW084f14iV93OmrFDTYGrGYtEhP03krjr7F9gEKW3oXQNQBRXRDEAvA3QNX6c/JGncWanALhd3B7klq0SBt6MWf8S6BWPL6IWRfEOjW5PO5fPkx/dQvbcUfR9Dxl/t0hKuNzG/w+wQzyeE6+9JPRJTwMDQBX8A3lsd/i7RaKxSHTqdYVbLH+r/gp4sZWo1kuCTiS6vH/IPgV6dPcDyNW/AH4SFd/lWML+dTYWcs0Be8Xj68j4BIR90j0+6XBn++LEUJKR2BeyvwfWtSNrAlHURDEIHGDp40o5Li8J4TJwE3hZPMpxs2oKX7gP0NDGnX3O0hUKusJrupJcoGitF/+M93Pj/xn5H/vHHa5lOwtuAAAAAElFTkSuQmCC);
+}
+.offer-content .rating .star.empty {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAVdEVYdENyZWF0aW9uIFRpbWUAOS8yMy8xM2SQ++wAAARiSURBVFiFvZhRaBt1HMc//0vTpE7WOFEEqZm1zreuGUhZtTMRfBAmJFCcyA1S2UBE3UYfZD5s6EPHHmRZZUMY2OEOKWOwCqIPBVupFMbAdhM6JmW0iM43MzDrujb39+H+1+WSS3KX3vmFI3f//H//++R33////7tACJI6fVKnL4yxtTAGBfLqCFxhAWfVEbgCB1ZWSALJMGwRRobzdc4DURjA2TrngShQYNsOZlcvZlcvhGCLoDOcBzB7BjB7BhxtQSlo4CzAxl6djb26oy0oBQbssEMyZR0h2CLIDOeBSiuEYosggTftYCsMWwQCXG0HW2HYIqgM58FpB1tB2yIo4Bo72AraFm3qUSU89nfrmwCSZs+Aww62zGQKs2cAbWkuKXUKQLGqSxFY8Hj/olDAV4GdHoNc9eDTX1yBAbSVeeKjr25leLB+1LAAkDoJLOg0gLlr0DXC7OpFdnQ62uRjCepltxpaW5pD3HcmWKzeQ/vjpnvM77P26QyQEwZF4bi5zhngKMBG5n0evvNFQ4iw1D4xQtv0V/ZlQRgcsy9EdWepkwfGAcq9b/Lw3bPIJ579PzgR//xJ+7dHiNz80W4aFgYXHX3cApWvp4GE2d3P2vAF5NMvhAqr/bVI+6UP0e5cA2siZoRROxldgWHT19NAH9EO1t67QHlPLhTYyK9XiX19GNZXwZpcGWHUrCaNgWET+gxq0V8fOsX6Gx8HChv97nOiP5y2Ly8Kg+FG/RsC25I6R4ACQPnlt1k7NL4lSADW/iV26SMi1y/bLUeFwdlmYZ6AAaROFmsyJszufh588lNroErx069X+jUnDGa8xHnemoXBJJABFrQ719BW5lvhBCwbKNgFIOUVFnzWEmrW/gygLc35CXUo8ij2mDBY9hPbSvGTBvfKzKtUyQn4Lzl9AUudncBu+eRzTbfiRipvoeT0m+F01Q1bUnlPFtmxHWC3Wjo9yy9wFsB8aZ/PsFqZL77iGNOrWstw31t1O0SnxoidP0Ds/AGiU2N1+1WM4Qu4zWtHVV90ml29yG07ajvUbgREbnyPtjLP2sEvIfZ4LfA3H4BKglf5ybBlBxf/Rm5NEz+1z4YtAjl1FCPXL1vf3Zp2xMhtO+yxOtWmFA5wtR3aJ0aIFfaj3b0NVqGdEgaTaqNJATPa3dvECvtpnxhxxLZqi6aSOgmpI83D22WpVJKlUkmuLs7K8ol+KXXs42SD+JN2v/KJfrm6OCtLpZK8v/ybHbvslcVrhi07qJkdnRojPjpYvb1+Vi9YfZdCbevx0UGiU2PIp7p9/2/hFTgN1iOMnRsieuW43V6gTqHtAr2AVYsUAKJXjhM7N1Q5JzzZwmt5uQwkZecziHt/gzWxhpVPfauy8qsY84Ywmme5KbB6VJWl2aSCdX0j8Cq1w43jzOzzzYohL5ZIq88iVpGd2yosgDAoCoMc1lu6PV66foQlL8BZHr1nNX0j8Cs1ZkbdY2vLm1rOXgsCzOP96i6Ntv4DPSiRI2u5NPsAAAAASUVORK5CYII=);
+}
+.offer-content .rating .votes {
+  float: left;
+  margin-left: 3px;
+  color: #989898;
+  font-size: 0.9em;
+  font-family: 'HelveticaNeue';
+}
+.offer-content .btn {
+  display: block;
+  margin: 7px 10px 0 92px;
+  padding: 8px 12px;
+  color: #007aff;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'HelveticaNeue';
+  font-weight: 600;
+  border: 1px #007aff solid;
+  border-radius: 8px;
+}
+.appstore {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 245px;
+  width: 135px;
+  height: 40px;
+  background-image: url(//offerwall.s3.amazonaws.com/assets/34394/Download_on_the_App_Store_Badge_US-UK_135x40_original.svg);
+  background-repeat: no-repeat;
+}
+@media only screen and (min-width: 321px) {
+  .offer-content {
+    float: right;
+    width: 50%;
+    padding: 15px 8px;
+  }
+  .offer-content .icon {
+    margin: 0 10px;
+  }
+  .offer-content .icon img {
+    width: 55px;
+    height: 55px;
+  }
+  .offer-content h3 {
+    font-size: 1em;
+  }
+  .offer-content .icon .price {
+    margin-top: 3px;
+    font-size: .8em;
+  }
+  .offer-content .details .publisher {
+    margin: .4em 0 .1em;
+    font-size: .7em;
+  }
+  .offer-content .rating .votes {
+    font-size: .7em;
+  }
+  .offer-content .rating .star {
+    background-size: 12px 11px;
+    width: 12px;
+    height: 11px;
+  }
+  .bg {
+    float: left;
+    width: 50%;
+    height: 100%;
+	/*(**replace**) BACKGROUND IMAGE LANDSCAPE*/
+    background-image: url(//offerwall.s3.amazonaws.com/assets/40250/grepolis_land_01_original.jpg);
+    background-position: center top;
+  }
+  .appstore {
+    top: 270px;
+    right: 10px;
+  }
+  .offer-content .btn {
+    margin: 37px 10px 0;
+  }
+}
+</style>
+<div id="split-screen">
+
+  <div class="bg"></div> 
+  <div class="offer-content">
+    <div class="icon">
+	<!-- (**replace**) APP ICON: -->
+      <img src="https://offerwall.s3.amazonaws.com/app_icons/6941/big_icon.png">
+      <span class="price">FREE</span>
+    </div>
+    <div class="details">
+      <!-- APP TITLE (**replace**)-->
+	  <h3></h3>
+	  <!-- PUBLISHER (**replace**)-->
+      <span class="publisher">InnoGames</span>
+      <div class="rating">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star empty"></span>
+        <span class="votes">(1409 Ratings)</span>
+      </div>
+      <a href="[[ProgramUrl]]" class="btn">FREE INSTALL NOW</a> <!-- #btn -->
+    </div><!-- #details -->
+    <a href="[[ProgramUrl]]" class="appstore"></a>
+  </div><!-- #offer-content -->
+</div>
+<script>
+var page = MBE.showPage('split-screen');
+
+page.on('close', function() {
+  MBE.finish();
+});
+
+$('.btn, .appstore').on('click', function(e) {
+  var url = $(this).attr('href');
+  MBE.track('PAGE_CLICK' + (e.target.className === 'btn' ? '_INSTALL' : '_APPSTORE'), null, function() {
+    MBE.follow(url);
+  });
+  return false;
+});
+
+$(window.parent).on('orientationchange', function() {
+  var $body = $('body');
+  // push appstore logo 15px up in browser
+  if( MBE.isBrowser() ) {
+    setTimeout(function() {
+      $body.find('.appstore')
+           .css('top', $body.hasClass('landscape') ? '230px' : '245px');
+    }, 0);
+  }
+});
+</script>
